@@ -8,7 +8,6 @@ function ShelfPage() {
       <p>All of the available items can be seen here.</p>
 {/* .map will go here and then: 
 <ShelfItem 
-key = {id}
 item = {item}/>
 */}
     </div>

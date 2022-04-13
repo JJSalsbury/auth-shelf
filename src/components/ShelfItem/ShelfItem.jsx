@@ -1,18 +1,29 @@
 import { useDispatch } from 'react-redux';
 
 
-function ShelfItem ({ item }) {
+function ShelfItem({ item }) {
 
-const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-const handleClick = () => {
-    dispatch({ type: 'DELETE_ITEM', payload: item.id })
-}
+    const handleClick = () => {
+        dispatch({ type: 'DELETE_ITEM', payload: item.id })
+    }
 
 
-    return(
-<button onClick={handleClick}>Yeet this</button>
 
+    return (
+        <>
+            <img key={item.id}
+                src={item.image_url} alt={item.description} />
+            <p>{item.description}</p>
+
+            {user.id ?
+
+                <button onClick={handleClick}>Yeet this!</button>
+                :
+                <button onClick ={ () => {}} </>>Nom nom</button>
+            }
+        </>
     );
 }
 
