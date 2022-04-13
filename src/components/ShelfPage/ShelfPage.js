@@ -1,6 +1,14 @@
 import React from 'react';
 
-function ShelfPage() {
+function ShelfPage({item}) {
+
+
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const movies = useSelector(store => store.ShelfPage);
+  const classes = useStyles();
+
+
   return (
     <div className="container">
       <h2>Shelf</h2>
