@@ -9,8 +9,6 @@ function ShelfItem({ item }) {
         dispatch({ type: 'DELETE_ITEM', payload: item.id })
     }
 
-
-
     return (
         <>
             <img key={item.id}
@@ -19,9 +17,10 @@ function ShelfItem({ item }) {
 
             {user.id ?
 
-                <button onClick={handleClick}>Yeet this!</button>
+                <button style={{ color: 'white', backgroundColor: 'red' }}
+                onClick={handleClick}>YEET</button>
                 :
-                <button onClick ={ () => {}} </>>Nom nom</button>
+                <button style={{ color: 'black', backgroundColor: 'gray' }}>haha no clickies for you</button>
             }
         </>
     );
