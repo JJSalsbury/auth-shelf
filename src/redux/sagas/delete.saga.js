@@ -8,10 +8,10 @@ function* deleteItem(action) {
 
 function* deleteItem(action) {
     try {
-        const id = action.payload 
-        const response = yield axios.delete(`/api/shelf/${id}`);
+        const id = action.payload
+        yield axios.delete(`/api/shelf/${id}`); //send id of item to delete
 
-        yield put({ type: 'GET_SHELF' });
+        yield put({ type: 'GET_SHELF' }); //call get for updated shelf list
     } catch (error) {
         console.log('User get request failed', error);
     }

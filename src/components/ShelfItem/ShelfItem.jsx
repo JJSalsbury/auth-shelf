@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
 
 
-function ShelfItem({ item }) {
+function ShelfItem({ item }) { //item coming from .map on ShelfPage 
 
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        dispatch({ type: 'DELETE_ITEM', payload: item.id })
+        dispatch({ type: 'DELETE_ITEM', payload: item.id }) //sends item id to saga with delete request
     }
 
     return (
