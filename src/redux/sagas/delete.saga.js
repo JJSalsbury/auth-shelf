@@ -6,15 +6,15 @@ function* deleteItem(action) {
 }
 
 
-function* deleteItem() {
+function* deleteItem(action) {
     try {
-    
-    //   const response = yield axios.delete(`/api/shelf/${item ID here}`);
+        const id = action.payload 
+        const response = yield axios.delete(`/api/shelf/${id}`);
 
-      yield put({ type: 'GET_SHELF' });
+        yield put({ type: 'GET_SHELF' });
     } catch (error) {
-      console.log('User get request failed', error);
+        console.log('User get request failed', error);
     }
-  }
+}
 
 export default deleteItem;
