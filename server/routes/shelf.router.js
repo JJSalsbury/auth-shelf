@@ -17,8 +17,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
   pool.query(queryText).then((result) => {
     res.send(result.rows);
-    res.sendStatus(200);// For testing only, can be removed
-    
+    // res.sendStatus(200)// For testing only, can be removed
 }).catch((error) => {
     console.log(error);
     res.sendStatus(500);
@@ -45,7 +44,7 @@ router.post('/',  (req, res) => {
 
 pool
   .query(queryText, queryValues)
-  .then(() => res.sendStatus(201))
+  .then(() => {res.sendStatus(201)})
   .catch((err) => {
     console.log('error posting item', err);
     res.sendStatus(500);
@@ -57,8 +56,8 @@ pool
  */
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
-  const id = [req.body]
-  const queryText = (`SELECT * 
+  const id = [req.params.id]
+  const queryText = (`DELETE 
                     FROM "item"
                     WHERE "item".id = $1       
 ;`)

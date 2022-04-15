@@ -11,8 +11,8 @@ function ShelfItem({ item }) { //item coming from .map on ShelfPage
     }
 
     const evaluateUser = () => {
-        if (item.user_id === user.id) { 
-            return true 
+        if (item.user_id === user.id) {
+            return true
         } else {
             return false
         }
@@ -21,16 +21,16 @@ function ShelfItem({ item }) { //item coming from .map on ShelfPage
     return (
         <>
             <img key={item.id}
-                src={item.image_url} alt={item.description} />
-            <p>{item.description}</p>
-
-            {evaluateUser() ?
+                src={item.image_url} alt={item.description} height="200px"/>
+            <p>{item.description}  {evaluateUser() ?
 
                 <button style={{ color: 'white', backgroundColor: 'red' }}
                     onClick={handleClick}>YEET</button>
                 :
                 <button style={{ color: 'black', backgroundColor: 'gray' }}>haha no clickies for you</button>
-            }
+            }</p>
+
+
         </>
     );
 }
