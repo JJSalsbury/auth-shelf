@@ -9,8 +9,8 @@ function ShelfForm () {
     const [link, setLink] = useState('');
 
     const handleClick = () => {
-        console.log('logging item, link: ', item, link);
-        // dispatch({type: 'ADD_NEW_ITEM', payload: {item: item, link: link}});
+        // console.log('logging item, link: ', item, link);
+        dispatch({type: 'ADD_NEW_ITEM', payload: {item: item, link: link}});
     }
 
     return(<>

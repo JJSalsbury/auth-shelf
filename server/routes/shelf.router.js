@@ -14,6 +14,20 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   // endpoint functionality
+  const queryValues = [req.body.item, req.body.link, req.user.id]
+
+  const queryText = `
+  INSERT INTO "item" 
+  ("description", "image_url", "user_id")
+  VALUES ($1, $2, $3)`;
+
+pool
+  .query(queryText, queryValues)
+  .then(() => res.sendStatus(201))
+  .catch((err) => {
+    console.log('error posting item', err);
+    res.sendStatus(500);
+  });
 });
 
 /**
