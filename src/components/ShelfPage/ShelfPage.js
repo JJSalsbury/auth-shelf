@@ -1,27 +1,34 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import {React, useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import ShelfItem from '../ShelfItem/ShelfItem';
 
 
-function ShelfPage({item}) {
+function ShelfPage() {
 
   const dispatch = useDispatch();
-  const item = useSelector(store => store.ShelfPage);
+  const shelf = useSelector(store => store.shelfReducer);
 
 
 
   useEffect(() => {
-    dispatch({ type: 'GET_SHELF', payload: item.id });
+    dispatch({ type: 'GET_SHELF'});
   }, []);
 
   return (
     <div className="container">
       <h2>Shelf</h2>
       <p>All of the available items can be seen here.</p>
-      <div key={item.id}>
-        <p>{item.description}</p>
-      </div>
+      {shelf.map((item) => {
+        return (
+          <ShelfItem
+            item={item} />
+        );
+      })}
+
     </div>
-  );
+
+  )
+
 }
 
 export default ShelfPage;

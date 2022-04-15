@@ -3,8 +3,6 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware')
 
-//install rejectUnauthenticated requirement
-const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 /**
  * Get all of the items on the shelf
@@ -13,7 +11,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
   console.log('/shelf GET route');
   console.log('is authenticated?', req.isAuthenticated());
-  console.log('results', result.rows);
+  // console.log('results', result.rows);
   
   const queryText = `SELECT * FROM "item"`;
 
@@ -53,6 +51,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     .query(queryText, id)
     .then((response) => {
       console.log('Deleted')
+      res.sendStatus(200);
     })
     .catch ((error) => {
     console.log('Error in DELETE:', error);
