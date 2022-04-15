@@ -14,6 +14,9 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   // endpoint functionality
+
+  //req.user.id is the currently logged in user's id: 
+  //this is NOT sent on params, it is on the server
   const queryValues = [req.body.item, req.body.link, req.user.id]
 
   const queryText = `
