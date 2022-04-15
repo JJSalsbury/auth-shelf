@@ -8,6 +8,7 @@ function* deleteItem(action) {
 
 function* deleteItem() {
     try {
+    
     //   const response = yield axios.delete(`/api/shelf/${item ID here}`);
 
       yield put({ type: 'GET_SHELF' });
