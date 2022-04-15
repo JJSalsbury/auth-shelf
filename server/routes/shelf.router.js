@@ -31,7 +31,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     .query(queryText, id)
     .then((response) => {
       console.log('Deleted')
-    });
+    })
     .catch ((error) => {
     console.log('Error in DELETE:', error);
     res.sendStatus(500);
