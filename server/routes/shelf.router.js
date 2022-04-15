@@ -34,7 +34,22 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.post('/',  (req, res) => {
   // endpoint functionality
 
-  
+  //req.user.id is the currently logged in user's id: 
+  //this is NOT sent on params, it is on the server
+  const queryValues = [req.body.item, req.body.link, req.user.id]
+
+  const queryText = `
+  INSERT INTO "item" 
+  ("description", "image_url", "user_id")
+  VALUES ($1, $2, $3)`;
+
+pool
+  .query(queryText, queryValues)
+  .then(() => res.sendStatus(201))
+  .catch((err) => {
+    console.log('error posting item', err);
+    res.sendStatus(500);
+  });
 });
 
 /**
