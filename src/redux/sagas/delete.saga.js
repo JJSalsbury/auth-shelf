@@ -2,11 +2,11 @@ import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* deleteItem(action) {
-    yield takeLatest('DELETE_ITEM', deleteItem);
+    yield takeLatest('DELETE_ITEM', itemDelete);
 }
 
 
-function* deleteItem(action) {
+function* itemDelete(action) {
     try {
         const id = action.payload
         yield axios.delete(`/api/shelf/${id}`); //send id of item to delete
